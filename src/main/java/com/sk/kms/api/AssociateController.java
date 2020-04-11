@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sk.kms.model.Associate;
 import com.sk.kms.service.AssociateService;
 
-//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class AssociateController {
 
@@ -46,6 +46,7 @@ public class AssociateController {
 
 	@RequestMapping(value="/api/associate/findall", method = RequestMethod.GET, produces = "application/json")
 	public List<Associate> getAllAssociates() {
+		System.out.println("Getting all Associates");
 		List<Associate> allAssociateList = associateService.findAll();
 		
 		return allAssociateList;
@@ -53,8 +54,16 @@ public class AssociateController {
 	
 	@RequestMapping(value = "/api/associate/create", method = RequestMethod.POST, consumes = "application/json")
     public Associate create(@RequestBody Associate associate) {
+		System.out.println("Creating an Associate");
 		associate = associateService.create(associate);
     	return associate;
     }
 	
+	@RequestMapping(value = "/api/associate/delete", method = RequestMethod.POST, consumes = "application/json")
+    public Associate delete(@RequestBody Associate associate) {
+		System.out.println("Creating an Associate");
+		associate = associateService.delete(associate);
+    	return associate;
+    }
+
 }

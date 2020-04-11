@@ -41,4 +41,11 @@ public class AssociateService  {
 		return r.nextInt((max - min) + 1) + min;
 	}
 
+	public Associate delete(Associate associate) {
+		if(associate != null && associate.getId() >= 0) {
+			associateJpaRepository.delete(associate);
+		}
+		return associate; 
+	}
+
 }
