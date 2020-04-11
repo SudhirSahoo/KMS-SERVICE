@@ -14,7 +14,8 @@ import com.sk.kms.model.Associate;
 import com.sk.kms.service.AssociateService;
 
 //@CrossOrigin(origins = "http://localhost:4200")
-@CrossOrigin(origins = {"http://localhost:4200", "https://rdrj289ioi.execute-api.us-east-1.amazonaws.com", "https://rdrj289ioi.execute-api.us-east-1.amazonaws.com/dev/"})
+//@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:3000", "https://ow59xl2smj.execute-api.us-east-1.amazonaws.com", "https://ow59xl2smj.execute-api.us-east-1.amazonaws.com/dev"})
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class AssociateController {
 
