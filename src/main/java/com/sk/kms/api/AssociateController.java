@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sk.kms.model.Associate;
 import com.sk.kms.service.AssociateService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "https://rdrj289ioi.execute-api.us-east-1.amazonaws.com", "https://rdrj289ioi.execute-api.us-east-1.amazonaws.com/dev/"})
 @RestController
 public class AssociateController {
 
