@@ -5,12 +5,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sk.kms.model.Associate;
+import com.sk.kms.model.User;
 import com.sk.kms.service.AssociateService;
 
 //@CrossOrigin(origins = "http://localhost:4200")
@@ -27,6 +29,12 @@ public class AssociateController {
 	@RequestMapping(value = "/associates", method = RequestMethod.GET, produces = "application/json")
 	public List<Associate> firstPage() {
 		return associates;
+	}
+
+	@RequestMapping(value="/api/validateLogin", method = RequestMethod.GET, produces = "application/json")
+	public User validateLogin() {
+		System.out.println("===============================================>>>");
+		return new User("User successfully authenticated");
 	}
 	
 	private static List<Associate> createList() {
@@ -61,9 +69,10 @@ public class AssociateController {
     	return associate;
     }
 	
+	//@CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600)
 	@RequestMapping(value = "/api/associate/delete", method = RequestMethod.POST, consumes = "application/json")
     public Associate delete(@RequestBody Associate associate) {
-		System.out.println("Creating an Associate");
+		System.out.println("Deleting an Associate");
 		associate = associateService.delete(associate);
     	return associate;
     }
