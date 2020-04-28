@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sk.kms.model.Associate;
-import com.sk.kms.model.User;
+//import com.sk.kms.model.User;
 import com.sk.kms.service.AssociateService;
 
 //@CrossOrigin(origins = "http://localhost:4200")
@@ -31,11 +31,11 @@ public class AssociateController {
 		return associates;
 	}
 
-	@RequestMapping(value="/api/validateLogin", method = RequestMethod.GET, produces = "application/json")
+	/*@RequestMapping(value="/api/validateLogin", method = RequestMethod.GET, produces = "application/json")
 	public User validateLogin() {
 		System.out.println("===============================================>>>");
 		return new User("User successfully authenticated");
-	}
+	}*/
 	
 	private static List<Associate> createList() {
 		List<Associate> tempAssociates = new ArrayList<>();
