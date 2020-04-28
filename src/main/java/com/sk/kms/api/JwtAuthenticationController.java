@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sk.kms.model.JwtRequest;
 import com.sk.kms.model.JwtResponse;
+import com.sk.kms.model.User;
+import com.sk.kms.model.UserDTO;
 import com.sk.kms.security.JwtTokenUtil;
 import com.sk.kms.service.JwtUserDetailsService;
 
@@ -34,6 +36,11 @@ public class JwtAuthenticationController {
 	@Autowired
 	private JwtUserDetailsService userDetailsService;
 
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public ResponseEntity<?> saveUser(@RequestBody UserDTO user) throws Exception {
+		return ResponseEntity.ok(userDetailsService.save(user));
+	}
+	
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
 

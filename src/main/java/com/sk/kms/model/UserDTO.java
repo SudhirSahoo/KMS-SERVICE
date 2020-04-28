@@ -1,22 +1,7 @@
 package com.sk.kms.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import javax.persistence.*;
-
-@Entity
-@Table(name = "user")
-public class User {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	
-	@Column
+public class UserDTO {
 	private String username;
-	
-	@Column
-	@JsonIgnore
 	private String password;
 
 	public String getUsername() {
@@ -34,5 +19,4 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 }
